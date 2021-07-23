@@ -1,0 +1,428 @@
+@import url("https://fonts.googleapis.com/css2?family=Overpass:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Overpass:wght@300&family=Ubuntu&display=swap");
+
+:root {
+  /* Primary */
+
+  --Light-red: hsl(356, 100%, 66%); /*(CTA text)*/
+  --Very-ligh-tred: hsl(355, 100%, 74%); /*(CTA hover background)*/
+  --Very-dark-blue: hsl(208, 49%, 24%); /*(headings)*/
+
+  /* Neutral  */
+
+  --White: hsl(0, 0%, 100%); /* (text)*/
+  --Grayish-blue: hsl(240, 2%, 79%); /*footer text  */
+  --Very-dark-grayish-blue: hsl(207, 13%, 34%); /*body copy*/
+  --dark-black-blue: hsl(240, 10%, 16%); /*footer background*/
+
+  /*Gradient*/
+
+  /*Background gradient - Intro/CTA mobile nav */
+  /*
+- Very light red: hsl(13, 100%, 72%)
+- Light red: hsl(353, 100%, 62%)
+
+Background gradient - body:
+
+- Very dark gray blue: hsl(237, 17%, 21%)
+- Very dark desaturated blue: hsl(237, 23%, 32%)
+*/
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Overpass", sans-serif;
+}
+a {
+  text-decoration: none;
+  color: initial;
+}
+
+ul {
+  list-style-type: none;
+}
+
+p {
+  font-size: 1rem;
+}
+
+h1 {
+  font-size: 1.6rem;
+}
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.2rem;
+}
+.big-heading {
+  font-size: 1.7rem;
+}
+.features__heading {
+  font-size: 1.5rem;
+}
+
+.desktop {
+  display: none;
+}
+img {
+  max-width: 100%;
+}
+
+/* COMPONENTS */
+.Navbar__btn,
+.secondary-btn {
+  width: 6rem;
+  height: 2.5rem;
+  border-radius: 1.7rem;
+  font-weight: 600;
+  padding: 15px;
+  margin-left: 7px;
+  transition: 0.4s ease-out;
+  font-family: "Overpass", sans-serif;
+}
+.Navbar__btn {
+  font-size: 1.1rem;
+  padding: 10px;
+  border: transparent;
+}
+.white-btn {
+  background: var(--White);
+  color: var(--Light-red);
+}
+.white-btn:hover {
+  background: var(--Very-ligh-tred);
+  color: var(--White);
+}
+.pink-btn {
+  background: inherit;
+  border: 2px solid var(--White);
+  color: white;
+}
+.pink-btn:hover {
+  background: var(--White);
+  color: var(--Light-red);
+}
+
+.sub-hero__btn-section {
+  margin-top: 2rem;
+}
+
+.Navbar__pink-btn {
+  background: var(--Light-red);
+  color: white;
+  display: block;
+  margin: 1rem 0;
+}
+
+.Navbar__white-btn {
+  background: inherit;
+  color: var(--Very-dark-grayish-blue);
+  margin-left: -0.5rem;
+  margin-top: 2rem;
+}
+/* NAVBAR */
+
+.Navbar {
+  display: flex;
+  flex-direction: column;
+  padding: 3% 3%;
+  gap: 4rem;
+}
+.Navbar__Link-brand {
+  position: absolute;
+}
+
+.Navbar__Items {
+  flex-direction: column;
+  display: none;
+  background-color: white;
+  align-items: center;
+  margin: 0 5%;
+  flex-direction: column;
+  margin-top: 3rem;
+}
+
+.Navbar__Items .Navbar__accordion {
+  align-items: center;
+  display: block;
+  background: inherit;
+  color: var(--dark-black-blue);
+  cursor: pointer;
+  text-align: center;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+  padding: 10px 20px;
+  font-size: 1.4rem;
+}
+
+.active:after {
+  content: url("/images/icon-close.svg"); /* Unicode character for "minus" sign (-) */
+}
+
+.Navbar__ToggleShow {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  border-radius: 0.6rem;
+  padding: 20px 5px;
+}
+.Navbar__ToggleShow .panel {
+  background: var(--Grayish-blue);
+  text-align: center;
+}
+.Navbar__ToggleShow .Navbar__accordion:after {
+  content: url("/images/icon-arrow-dark.svg");
+  font-size: 13px;
+  float: right;
+  margin-left: 5px;
+}
+
+.Navbar__Link-toggle {
+  align-self: flex-end;
+  position: absolute;
+  cursor: pointer;
+}
+
+.Navbar__Link-toggle .Navbar__accordion {
+  color: var(--Very-dark-blue);
+  font-weight: 400;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+  flex-direction: column;
+  background-color: var(--Light-red);
+  padding: 0 10px;
+  display: none;
+  overflow: hidden;
+  width: 12rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  margin: 0rem 0;
+}
+.panel__link {
+  font-weight: 600;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active,
+.accordion:hover {
+  background-color: var(--Very-dark-grayish-blue);
+}
+
+.Navbar__accordion:after {
+  content: url("/images/icon-arrow-light.svg");
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  display: none;
+  overflow: hidden;
+}
+
+.panel__link {
+  display: block;
+  padding: 5px 0;
+  font-weight: 400;
+}
+.panel__link:hover {
+  text-decoration: underline;
+}
+
+/* HERO SECTION : NAVBAR & INTRO*/
+
+.hero {
+  color: white;
+  background: url("/images/bg-pattern-intro.svg") center;
+  height: 600px;
+  width: 100%;
+  border-bottom-left-radius: 5rem;
+  padding: 5px;
+}
+.header {
+  background-image: url("/images/bg-pattern-intro.svg"),
+    linear-gradient(to bottom right, hsl(13, 100%, 72%), hsl(353, 100%, 62%));
+}
+.sub-hero {
+  margin-top: 8rem;
+  text-align: center;
+}
+
+/* MAIN SECTION: FEATURES & ALL   */
+main {
+  text-align: center;
+}
+.features__header-text {
+  font-size: 1.4rem;
+  margin: 1rem 0;
+}
+.features__item {
+  margin: 2rem 0;
+}
+.features__item-section {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: flex-end;
+  gap: 2rem;
+  align-items: center;
+}
+.features__item-content {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  padding: 5px;
+}
+.editor {
+  margin-bottom: 10rem;
+}
+
+.features__heading {
+  color: var(--Very-dark-blue);
+  font-weight: 600;
+  font-family: "Ubuntu", sans-serif;
+}
+.state-of-infra {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  background: url("/images/bg-pattern-circles.svg") no-repeat left;
+  background-color: var(--dark-black-blue);
+  border-top-right-radius: 5rem;
+  border-bottom-left-radius: 5rem;
+  height: 500px;
+}
+.mobile-phone {
+  margin-top: -10rem;
+}
+
+.state-of-infra .features__heading {
+  margin-top: -3rem;
+  color: var(--White);
+  padding-bottom: 10px;
+}
+.state-of-infra .para {
+  color: var(--Grayish-blue);
+}
+
+.tooling {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+/*  FOOTER  */
+footer {
+  background: var(--dark-black-blue);
+  color: var(--White);
+  padding: 20px;
+  text-align: center;
+  border-top-right-radius: 5rem;
+}
+footer .panel__link {
+  color: var(--Very-dark-grayish-blue);
+}
+.footer .panel__link:hover {
+  border-bottom: 2px solid var(--Very-dark-grayish-blue);
+}
+
+.footer__item {
+  width: 25rem;
+}
+.footer__section {
+  padding: 20px 5px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.Navbar__Link-brand {
+  align-self: flex-start;
+  justify-self: center;
+}
+
+@media (min-width: 768px) {
+  p {
+    font-size: 1.3rem;
+  }
+  .desktop {
+    display: block;
+    max-width: 107%;
+  }
+  .mobile {
+    display: none;
+  }
+  /* NAVBAR */
+
+  .Navbar__Items {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 1rem;
+    padding: 0;
+    background: inherit;
+    margin: 0 0 0 10rem;
+  }
+
+  .Navbar__btn-section {
+    margin-left: 25rem;
+    display: flex;
+  }
+  .Navbar__pink-btn {
+    background: var(--Light-red);
+    color: white;
+    display: block;
+    margin: 0;
+    padding: 10px;
+  }
+  .Navbar__white-btn {
+    color: var(--White);
+    margin-top: 0rem;
+  }
+  .Navbar__pink-btn:hover {
+    background: var(--Very-ligh-tred);
+    color: white;
+  }
+
+  .Navbar__Items .Navbar__accordion {
+    color: var(--White);
+  }
+  .Navbar__Link-toggle {
+    display: none;
+  }
+
+  .big-heading {
+    font-size: 2.5rem;
+  }
+  main {
+    text-align: left;
+  }
+  .features__header-text {
+    text-align: center;
+    font-size: 1.6rem;
+  }
+  .features__content {
+    max-width: 35rem;
+  }
+  .features__item-content {
+    margin-bottom: 4rem;
+  }
+  .features__heading {
+    font-size: 2.3rem;
+  }
+  .editor {
+    margin-bottom: rem;
+  }
+  .editor__image {
+    margin-right: -10rem;
+  }
+
+  .tooling__image {
+    margin-left: -10rem;
+  }
+}
